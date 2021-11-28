@@ -1,0 +1,1 @@
+docker exec -it book-api /bin/bash
