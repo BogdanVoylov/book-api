@@ -9,9 +9,9 @@ jobs:
       - name: Copy repository
         uses: actions/checkout@v2
       - name: Install npm dependencies
-        run: npm ci
+        run: yarn install --immutable
       - name: Lint code
-        run: npm run lint
+        run: yarn lint
       - name: Run tests
-        run: npm run test
+        run: yarn test
      
