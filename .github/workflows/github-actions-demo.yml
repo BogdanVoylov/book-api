@@ -6,6 +6,8 @@ jobs:
     container:
       image: node:14.15.0-alpine3.12
     steps:
+      - name: Debug
+        run: ls
       - name: Install npm dependencies
         run: npm ci
       - name: Lint code
