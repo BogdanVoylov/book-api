@@ -40,5 +40,11 @@ describe('BookController', () => {
       await bookController.create(toInsert);
       await expect(proxy.sentObj).toMatchObject(toInsert);
     });
+
+    it('should select from repo', async () => {
+      const toSelect = { id: '1cb0ee52-368a-4fb5-bc5a-5c68f11b6517' };
+      await bookController.get(toSelect);
+      await expect(bookRepository.selected).toMatch(toSelect.id);
+    });
   });
 });
