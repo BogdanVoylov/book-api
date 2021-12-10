@@ -2,9 +2,12 @@ import { Injectable } from '@nestjs/common';
 import DbService from 'src/db/db.service';
 import { wait } from 'src/utils/load';
 import { BookDTO } from './dto/book.dto';
-
+export interface IBookRepository {
+  insert(book: BookDTO): Promise<string>;
+  select(id: string): Promise<BookDTO[]>;
+}
 @Injectable()
-export class BookRepository {
+export class BookRepository implements IBookRepository {
   constructor(private readonly dbService: DbService) {}
 
   public async insert(book: BookDTO): Promise<string> {
